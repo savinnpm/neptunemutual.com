@@ -2,13 +2,14 @@
   "name": "neptunemutual-web",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "yarn lang && next build",
+    "dev": "yarn convert-images && next dev",
+    "build": "yarn convert-images && yarn lang && next build",
     "start": "next start",
     "lint": "next lint",
     "lang:extract": "NODE_ENV=development lingui extract --clean",
     "lang": "yarn lang:extract && lingui compile",
-    "prettier:fix": "prettier --check \"components/**/*.js\""
+    "prettier:fix": "prettier --check \"components/**/*.js\"",
+    "convert-images": "npx gulp -f convert-images.gulp.js"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.3",
@@ -35,6 +36,8 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-unused-imports": "^2.0.0",
+    "gulp": "^4.0.2",
+    "gulp-webp": "^4.0.1",
     "postcss": "^8.4.5",
     "prettier": "^2.5.1",
     "sass": "^1.49.4",
